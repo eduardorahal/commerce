@@ -8,9 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://eduardorahal@bitbucket.org/eduardorahal/commerce.git"
+    "url": "https://eduardorahal@bitbucket.org/eduardorahal/commerce.git"
   },
   "author": "Eduardo Rahal",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/eduardorahal/commerce#readme"
+  "homepage": "https://bitbucket.org/eduardorahal/commerce#readme",
+  "dependencies": {
+    "convict": "^4.4.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.17"
+  },
+  "devDependencies": {
+    "dotenv": "^6.2.0"
+  }
 }
