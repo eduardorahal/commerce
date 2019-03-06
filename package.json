@@ -12,7 +12,7 @@
   },
   "author": "Eduardo Rahal",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/eduardorahal/commerce#readme",
+  "homepage": "https://bitbucket.org/eduardorahal/commerce",
   "dependencies": {
     "convict": "^4.4.1",
     "express": "^4.16.4",
