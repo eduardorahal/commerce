@@ -21,14 +21,26 @@ server.listen(port, () => {
 server.set('view engine', 'ejs');
 server.set('views', path.join(__dirname, 'views'));
 
-const categories = require('./routes/categories');
-const products = require('./routes/products');
+const categoryRoutes = require('./routes/category');
+const productRoutes = require('./routes/product');
+
+server.use('/category', categoryRoutes);
+server.use('/product', productRoutes);
+
+const Category = require('./controllers/category');
+
+server.use(function (req, res) {
+    var cate = Category.getCategory;
+    Object.assign(res.locals, cate);
+});
 
 server.get('/', (req, res) => {
-    res.render('index', {data: data});
-  });
-server.use('/categories', categories);
-server.use('/products', products);
+    res.render('index');
+});
 
-var Category = require("./models/category.js");
-var data = Category.getCategory;
+
+
+
+
+
+

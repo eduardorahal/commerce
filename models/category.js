@@ -16,9 +16,6 @@ const CategorySchema = mongoose.Schema({
 //Create and Export Category Model
 const Category = module.exports = mongoose.model('Category', CategorySchema);
 
-// Select All Categories from Database
-module.exports.getCategory = Category.find({});
-
 //Select Subcategories from Database
 // module.exports.getSubCategory = Category.find({"categories":{$elemMatch:{"parent_category_id":"womens"}}}).exec(function(err, subcategories){
 //     if(err){
