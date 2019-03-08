@@ -29,14 +29,7 @@ server.use('/product', productRoutes);
 
 const Category = require('./controllers/category');
 
-server.use(function (req, res) {
-    var cate = Category.getCategory;
-    Object.assign(res.locals, cate);
-});
-
-server.get('/', (req, res) => {
-    res.render('index');
-});
+server.get('/', Category.getCategory);
 
 
 
