@@ -6,15 +6,6 @@ exports.getCategory = (req, res, next) => {
     Category.find()
     .exec()
     .then(docs => {
-        res.render('../views/index', {docs:docs})
+        res.render('../views/index', {docs:docs});
     })
     }
-
-// Select Only Main Categories from Database
-exports.getMain = (req, res, next) => {
-    Category.find()
-    .exec()
-    .then(docs => {
-        res.render('../views/index', {docs:docs})
-    })
-}

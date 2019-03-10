@@ -11,6 +11,7 @@ const CategorySchema = mongoose.Schema({
     page_title: {type: String},
     parent_category_id: {type: String},
     image: {type: String},
+    categories: [],
 }, { collection: 'categories' });
 
 //Create and Export Category Model
