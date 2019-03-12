@@ -5,6 +5,7 @@ const convict = require('convict');
 const mongoose = require('mongoose');
 const database = require('./config/database');
 const path = require('path');
+var favicon = require('serve-favicon');
 
 // Define Server
 var server = express();
@@ -21,15 +22,15 @@ server.listen(port, () => {
 server.set('view engine', 'ejs');
 server.set('views', path.join(__dirname, 'views'));
 
+//Set Favicon
+server.use(favicon(path.join(__dirname,'favicon.ico')));
+
 const categoryRoutes = require('./routes/category');
 const productRoutes = require('./routes/product');
 
-server.use('/category', categoryRoutes);
+server.use('/', categoryRoutes);
 server.use('/product', productRoutes);
 
-const Category = require('./controllers/category');
-
-server.get('/', Category.getCategory);
 
 
 

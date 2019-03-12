@@ -21,15 +21,8 @@
 
                 <% var i=0; %>
                 <% while (i<docs.length) { %>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= docs[i].name %></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown07">
-                            <% var j=0; %>
-                            <% while (j<docs[i].categories.length) { %>
-                            <a class="dropdown-item" href="#"><%= docs[i].categories[j].name %></a>
-                            <% j++; %>
-                            <% } %>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/<%= docs[i].id %>"><%= docs[i].name %></a>
                     </li>
                 <% i++; %>
                 <% } %>

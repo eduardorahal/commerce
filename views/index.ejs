@@ -2,8 +2,14 @@
 
 <% include ./_includes/header %>
 
-
-<%= docs[1].categories[0].name %>
-
+<ul>
+    <% var i=0; %>
+        <% while (i<cat.length) { %>
+            <li>
+                <%= cat[0].categories.categories %>
+            </li>
+        <% i++; %>
+    <% } %>
+</ul>
 
 <% include ./_includes/footer %>
