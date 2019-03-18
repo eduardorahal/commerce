@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Commerce</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+
+    <style>
+        a{
+            color: indigo;
+        }
+        a:hover{
+            color: indigo;
+            text-decoration: none;
+        }
+        body{
+            background-color: rgb(250, 242, 242);
+        }
+        img {
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+        }
+        img:hover {
+            opacity:1.0;
+            filter: alpha(opacity=100);
+        }
+        a.nav-link{
+            color: white;
+        }
+        a.nav-link:hover {
+            color: yellow;
+        }
+        a.active{
+            color: yellow ;
+        }
+    </style>
+
+
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg" style="background-color: indigo;">
+        <div class="container">
+            <a class="navbar-brand" href="/" style="color: white" >Commerce</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav mr-auto">
+
+                <% var i=0; %>
+                <% while (i<main.length) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/<%= main[i].id %>"><%= main[i].name %></a>
+                    </li>
+                <% i++; %>
+                <% } %>
+                    
+                </ul>
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <main>
+        <div class="container" style="background-color: transparent">
+         <%- body %>
+        </div>
+    </main>
+
+
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>
+        jQuery(function($) {
+            var pathname = window.location.pathname.split("/");
+            var path = "/"+pathname[1];
+            $('ul li a').each(function() {
+                if (this.pathname === path) {
+                    $(this).addClass('active');
+                }
+            });
+        });
+    </script>
+
+    <footer style="text-align: right;">
+        <div class="container">
+            <hr style="border-width: 2px; border-color: rgb(85, 109, 109);">
+            Copyright &trade; 2019 OSF Global Services
+        </div>  
+    </footer>
+</body>
+</html>

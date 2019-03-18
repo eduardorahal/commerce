@@ -1,0 +1,29 @@
+<%- contentFor('body') %>
+<div class="jumbotron" style="background-color: transparent; color: indigo; margin-top: -40px; ">
+    <% _.each(sub[0].categories, function(subC){ %>
+        <h6>
+            <a href="/">Home</a>
+            &nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
+            <a href="/<%= cat[0].id %>"><%= cat[0].name; %></a>
+            &nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
+            <%= subC.name %>
+        </h6>
+        <br>
+        <div class="jumbotron-fluid" style="color: indigo">
+            <h1 class="display-3"><%= subC.name %></h1>
+            <p class="lead" style="background-color: rgb(250, 242, 242)"><%= subC.page_description; %></p>
+        </div>
+        <br>
+        <% var categories = subC.categories; %>
+        <% for(var i=0; i<categories.length; i++) { %>  
+            <h3><%= categories[i].name %></h3>
+            <a href="/<%= cat[0].id %>/<%= subC.id %>/<%= categories[i].id %>">
+                <div style="background-color: white">
+                    <img src="http://localhost:3000/public/categories/<%= categories[i].id %>.jpg" style="width:100%;">
+                </div>
+            </a>
+            <div class="container" style="text-align: right"><%= categories[i].page_title; %></div>
+            <br>
+        <% } %>
+    <% }) %>
+</div>

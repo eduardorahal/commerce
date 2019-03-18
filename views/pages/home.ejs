@@ -1,0 +1,13 @@
+<%- contentFor('body') %>
+<div class="jumbotron" style="background-color: transparent; color: indigo; margin-top: -40px; ">
+    <% for(var i=0; i<main.length; i++) { %>
+        <h3><%= main[i].name %></h3>
+        <a href="/<%=main[i].id%>">
+            <div style="background-color: white">
+                <img src="public/categories/<%= main[i].id %>.jpg" style="width:100%;">
+            </div>
+        </a>
+        <div class="container" style="text-align: right"><%= main[i].page_title %></div>
+        <br>
+    <% } %>
+</div>
