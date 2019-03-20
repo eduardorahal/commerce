@@ -7,7 +7,7 @@ var _ = require('underscore');
 
 // Select Everything from Categories Collection
 exports.getMain = (req, res, next) => {
-    Category.find().exec()
+    Category.find({}, {'id':1, 'name':1, 'page_title':1 }).exec()
     .then(docs => {
         res.render('../views/pages/home', {main:docs})
     })
@@ -16,8 +16,8 @@ exports.getMain = (req, res, next) => {
 // Select Only one Category
 exports.getCat = (req, res, next) => {
     when.all([
-        Category.find().exec(),
-        Category.find({"id":req.params.cat}).exec()
+        Category.find({}, {'id':1, 'name':1 }).exec(),
+        Category.find({"id":req.params.cat},{"id":1,"name":1,"page_description":1, 'categories.id':1, 'categories.name':1, 'categories.page_title':1}).exec()
     ])
     .then(docs => {
         res.render('../views/pages/cat', {main:docs[0], cat:docs[1]});
@@ -27,8 +27,8 @@ exports.getCat = (req, res, next) => {
 // Select SubCategory
 exports.getSub = (req, res, next) => {
     when.all([
-        Category.find().exec(),
-        Category.find({"id":req.params.cat}).exec(),
+        Category.find({}, {'id':1, 'name':1 }).exec(),
+        Category.find({"id":req.params.cat},{"id":1,"name":1}).exec(),
         Category.find({"id":req.params.cat}, {"categories":{$elemMatch:{"id":req.params.sub}}}).exec()
     ])
     .then( docs => {

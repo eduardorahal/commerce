@@ -13,7 +13,7 @@ var expressLayouts = require('express-ejs-layouts');
 var server = express();
 
 // Set Static Folder
-server.use('/public', express.static(__dirname +  '/public'))
+server.use('/public', express.static(__dirname + '/public'))
 
 // Port Number
 const port = process.env.PORT || 3000;
@@ -41,7 +41,6 @@ const categoryRoutes = require('./routes/category');
 const productRoutes = require('./routes/product');
 
 server.use('/', categoryRoutes);
-server.use('/product', productRoutes);
 
 
 
