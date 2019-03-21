@@ -8,5 +8,6 @@ router.get("/", CategoriesController.getMain);
 router.get("/:cat", CategoriesController.getCat);
 router.get("/:cat/:sub", CategoriesController.getSub);
 router.get("/:cat/:sub/:end", ProductsController.getProducts);
+router.get("/:cat/:sub/:end/:id", ProductsController.getProduct);
 
 module.exports = router;
