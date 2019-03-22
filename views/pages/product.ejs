@@ -1,0 +1,44 @@
+
+<%- contentFor('body') %>
+<div class="jumbotron" style="background-color: transparent; color: indigo; margin-top: -40px; ">
+    <h6>
+        <a href="/">Home</a>
+        &nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
+        <a href="/<%= cat[0].id %>"><%= cat[0].name; %></a>
+        &nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
+        <a href="/<%= cat[0].id %>/<%= sub[0].categories.id %>"><%= sub[0].categories.name; %></a>
+        &nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
+        <a href="/<%= cat[0].id %>/<%= sub[0].categories.id %>/<%= sub[0].categories.categories.id %>"><%= sub[0].categories.categories.name; %>
+    </h6>
+    <br>
+    <br>
+    <div class="container row" style="justify-content: center; align-items: center">
+        <div class="col-md-10" style="height: 500px">
+            <h6><%= id[0].name %></h6><br>
+            <br>
+            <div class="row">
+                <div class="col-md-5">
+                        <img width="300px" style="opacity: 1; filter: alpha(opacity=100);" src="../../../public/products/<%= sub[0].categories.categories.id %>.jpg">
+                </div>
+                <div class="col-md-7">
+                    <p style="text-align: justify"><%= id[0].long_description %></p>
+                    <div class="row container" style="position:absolute; bottom:0; line-height: 40px">
+                        <div class="col-md-5">
+                            <a href="" style="float:left" class="btn btn-outline-secondary" >Buy Now</a>
+                        </div>
+                        <div class="col-md-7">
+                            <p class="col-md-7" style="float:left; vertical-align:middle; ">Price: <%= id[0].price %>&nbsp;</p>
+                            <div class="form-group">
+                                <select class="form-control col-md-5" style="float:right;" id="currencySelect">
+                                    <% for (var i=0; i<p.length; i++) { %>
+                                        <option><%= p[i].IDMoneda %></option>                               
+                                    <% } %>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
