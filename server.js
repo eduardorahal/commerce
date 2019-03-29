@@ -37,6 +37,7 @@ server.use(favicon(path.join(__dirname,'favicon.ico')));
 server.use(bodyParser.urlencoded()); 
 server.use(bodyParser.json())
 
+//Set Routes
 const categoryRoutes = require('./routes/category');
 const productRoutes = require('./routes/product');
 

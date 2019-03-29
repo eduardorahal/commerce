@@ -42,7 +42,11 @@ exports.getProduct = (req, res, next) => {
         ])
         .then(result => {
             p = result[0][0].getallResult.diffgram.DocumentElement.Currency;
-            
+            for(i=0; i<p.length; i++){
+                if(p[i].IDMoneda == "USD"){
+                    ref = p[i].Value;
+                }
+            } 
 
             when.all([
                 Category.find({}, {'id':1, 'name':1 }).exec(),
@@ -54,10 +58,12 @@ exports.getProduct = (req, res, next) => {
                     { $match: { "categories.categories.id":req.params.end} }
                     ]).exec(),
                 Product.find({"id":req.params.id}).exec(),
-                p
+                p,
+                ref
             ])
             .then(docs => {
-                res.render('../views/pages/product', {main:docs[0], cat:docs[1], sub:docs[2], id:docs[3], p:docs[4]});
+                ref = docs[3][0].price * docs[5];
+                res.render('../views/pages/product', {main:docs[0], cat:docs[1], sub:docs[2], id:docs[3], p:docs[4], ref:ref});
             })
 
 

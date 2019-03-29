@@ -26,12 +26,13 @@
                         <div class="col-md-5">
                             <a href="" style="float:left" class="btn btn-outline-secondary" >Buy Now</a>
                         </div>
-                        <div class="col-md-7">
-                            <p class="col-md-7" style="float:left; vertical-align:middle; ">Price: <%= id[0].price %>&nbsp;</p>
+                        <div class="col-md-7" id="price">
+                            <h7 class="col-md-3" style="float:left; vertical-align:middle; ">Price: </h7>
+                            <span class="col-md-3" style="float:left; vertical-align:middle; "><%= id[0].price %></span>
                             <div class="form-group">
-                                <select class="form-control col-md-5" style="float:right;" id="currencySelect">
+                                <select class="form-control col-md-5" style="float:right;" id="currencySelect" onchange="changeCur(this.value);">
                                     <% for (var i=0; i<p.length; i++) { %>
-                                        <option><%= p[i].IDMoneda %></option>                               
+                                        <option value="<%= p[i].Value %>, <%= p[i].IDMoneda %>" <%= id[0].currency == p[i].IDMoneda ? 'selected' : '' %> > <%= p[i].IDMoneda %> </option>                               
                                     <% } %>
                                 </select>
                             </div>
@@ -42,3 +43,18 @@
         </div>
     </div>
 </div>
+
+<!-- Function to change value according to currency select -->
+<script>
+    function changeCur(value){
+        var newe = value.split(", ",2);
+        id = newe[1];
+        value = newe[0];
+        if(id == "USD"){
+            $('#price span').html("<%= id[0].price %>");
+        }
+        else {
+            $('#price span').html(("<%= ref %>" / value).toFixed(2));
+        }
+    }
+</script>
