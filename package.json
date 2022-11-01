@@ -21,7 +21,7 @@
     "express-ejs-layouts": "^2.5.0",
     "mongoose": "^5.4.17",
     "serve-favicon": "^2.5.0",
-    "soap": "^0.26.0",
+    "soap": "^0.45.0",
     "underscore": "^1.9.1",
     "when": "^3.7.8"
   },
