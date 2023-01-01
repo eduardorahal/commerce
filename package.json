@@ -15,7 +15,7 @@
   "homepage": "https://bitbucket.org/eduardorahal/commerce",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "convict": "^4.4.1",
+    "convict": "^6.2.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-ejs-layouts": "^2.5.0",
